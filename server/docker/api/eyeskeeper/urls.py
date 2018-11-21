@@ -22,7 +22,7 @@ router = DefaultRouter()
 router.register(r'music', views.MusicViewSet, base_name='music')
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^api/', include(router.urls, namespace='api'), name='api'),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('admin/', admin.site.urls),
+    path('api/', include(router.urls, namespace='api'), name='api'),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

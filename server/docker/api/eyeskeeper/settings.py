@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'django_rest_framework_tutorial.urls'
+ROOT_URLCONF = 'eyeskeeper.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'django_rest_framework_tutorial.wsgi.application'
+WSGI_APPLICATION = 'eyeskeeper.wsgi.application'
 
 
 # Database
