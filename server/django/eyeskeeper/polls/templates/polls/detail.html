@@ -1,0 +1,16 @@
+<h1>{{ question.question_text }}</h1>
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+{#设置表单的action，并设置method为post，会改变数据库的表单#}
+<form action="{% url 'polls:vote' question.id %}" method="post">
+    {#    为防止跨站点的请求伪造，所有针对内部URL的post表单都应使用下行模版标签#}
+    {% csrf_token %}
+    {% for choice in question.choice_set.all %}
+        {#        生成单选按钮，选择后的属性对应choice的id，name是choice#}
+        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+    {% endfor %}
+    <input type="submit" value="Vote">
+</form>
